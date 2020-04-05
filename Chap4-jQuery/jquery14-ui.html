@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JQuery UI</title>
+    <script type="text/javascript" src="jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="jquery-ui-1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.css">
+    <style type="text/css">
+        .list_style {
+            border-style: outset;
+            list-style-type: none;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div id="accordion">
+        <h3>Section 1</h3>
+        <div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac eros sed lorem vulputate finibus. Donec
+                eu lorem vitae orci viverra dignissim. Maecenas sagittis elit at leo luctus, eget volutpat magna
+                gravida. In gravida dolor sit amet tincidunt iaculis. Sed a efficitur lectus. Sed sit amet eros congue
+                enim consectetur imperdiet sit amet nec sapien. Pellentesque non purus et odio egestas hendrerit. Nullam
+                gravida gravida ligula, et lacinia eros bibendum vel. Quisque quis tempus mi. Donec nec cursus mi.
+                Phasellus nulla leo, bibendum in urna eu, molestie luctus sem. Phasellus blandit, lectus id tempor
+                elementum, est lorem bibendum nulla, ut rutrum turpis eros ut elit.</p>
+        </div>
+        <h3>Section 2</h3>
+        <div>
+            <p>Donec quis eros diam. Etiam mattis volutpat ligula, sed elementum leo imperdiet vel. Pellentesque sed
+                turpis mattis, faucibus erat sit amet, volutpat lacus. Cras egestas maximus tellus sit amet pharetra. Ut
+                aliquam sed augue quis euismod. Donec eleifend augue ut arcu lobortis cursus. Nulla nibh nisl, viverra
+                non nunc vitae, lacinia gravida est. Suspendisse gravida sapien ac posuere vestibulum. Pellentesque sit
+                amet augue sagittis, dignissim odio eget, sodales libero. Suspendisse vehicula nunc massa, vitae gravida
+                neque gravida sed. Sed in ipsum justo.</p>
+        </div>
+        <h3>Section 3</h3>
+        <div>
+            <p>Etiam molestie rutrum sapien, at pulvinar nulla imperdiet quis. Quisque ac volutpat elit, id vehicula
+                est. Maecenas at arcu molestie, sagittis nisl convallis, tincidunt justo. Fusce venenatis ligula ac
+                rutrum euismod. Pellentesque sit amet ultrices felis. Nullam aliquam scelerisque quam id sodales. Sed
+                egestas tempus massa, et gravida nibh molestie ut. Maecenas luctus enim vel sapien condimentum
+                consectetur. Suspendisse nec massa sed erat aliquam dapibus ac non nisi.</p>
+        </div>
+    </div>
+
+
+    <ul id="sortable">
+        <li class="list_style">The first</li>
+        <li class="list_style">The second</li>
+        <li class="list_style">The third</li>
+        <li class="list_style">The fourth</li>
+        <li class="list_style">The fifth</li>
+    </ul>
+
+
+    <script type="text/javascript">
+        $(function () {
+            $("#accordion").accordion({ collapsible: true });
+        });
+        $(function () {
+            $("#sortable").sortable();
+            $("#sortable").disableSelection();
+        });
+    </script>
+</body>
+
+</html>

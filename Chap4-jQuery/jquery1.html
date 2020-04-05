@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JQuery is fun to learn</title>
+    <script type="text/javascript" src="jquery-3.4.1.min.js"></script>
+    <style type="text/css">
+        .square {
+            height: 150px;
+            width: 150px;
+            background-color: red;
+            position: relative;
+            border-style: solid;
+            margin: 10px;
+        }
+
+        .circle {
+            height: 150px;
+            width: 150px;
+            background-color: green;
+            border-radius: 50%;
+            position: relative;
+            border-style: solid;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="square" id="square1"></div>
+    <div class="square" id="square2"></div>
+    <div class="circle" id="circle1"></div>
+    <h1>This is just a simple, lovely iframe for instance</h1>
+    <iframe src="https://www.codestars.com" height="400" width="1080" frameborder="0"></iframe>
+
+    <p>This is something really fun to learn with JQuery</p>
+
+    <script type="text/javascript">
+        $(".circle").hover(function(){
+            alert("Circle is hovered");
+            $("iframe").attr("src","https://www.bbc.com");
+        });
+        $(".square").click(function(){
+            alert("The square is clicked")
+        });
+
+        $("p").html("Hello, Your iframe is changed.");
+
+    </script>
+</body>
+
+</html>

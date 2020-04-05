@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Javascript</title>
+</head>
+
+<body>
+    <p id="text1">Hello man, welcome back to web development for fun.</p>
+    <button id="myButton1">Click here to change text</button>
+    <p id="text2">Javascript is fun ....</p>
+    <button id="myButton2"> Click here to change text</button>
+    <p id="text3"></p>
+    <button id="myButton3">Click here to show the hidden hints</button>
+    <p id="text4">Text style change</p>
+    <button id="myButton4">Click to change style</button>
+
+    <script type="text/javascript">
+        /*  These lines are used to change/show the text */
+        document.getElementById("myButton1").onclick = function () {
+            document.getElementById("text1").innerHTML = "The text is changed. Please have a look"
+        }
+        document.getElementById("myButton2").onclick = function () {
+            document.getElementById("text2").innerHTML += " and awesome."
+        }
+        document.getElementById("myButton3").onclick = function () {
+            document.getElementById("text3").innerHTML = "Here I am. Your very hidden hints to the precious treasure of knowledge."
+        }
+        document.getElementById("myButton4").onclick = function () {
+            document.getElementById("text4").style.color = "red"
+            document.getElementById("text4").style.fontSize = "50px"
+        }
+    </script>
+
+</body>
+
+</html>

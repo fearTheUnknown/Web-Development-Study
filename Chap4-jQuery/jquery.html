@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JQuery is fun to learn</title>
+    <script type="text/javascript" src="jquery-3.4.1.min.js"></script>
+    <style type="text/css">
+        .square {
+            height: 150px;
+            width: 150px;
+            background-color: red;
+            position: relative;
+            border-style: solid;
+            margin: 10px;
+        }
+
+        .circle {
+            height: 150px;
+            width: 150px;
+            background-color: green;
+            border-radius: 50%;
+            position: relative;
+            border-style: solid;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="square" id="square1"></div>
+    <div class="square" id="square2"></div>
+    <div class="circle" id="circle1"></div>
+
+    <script type="text/javascript">
+        $(".circle").click(function(){
+            alert("Circle is clicked")
+        });
+        $(".square").click(function(){
+            alert("The square is clicked")
+        });
+    </script>
+</body>
+
+</html>

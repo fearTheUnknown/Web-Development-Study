@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JQuery is fun to learn</title>
+    <script type="text/javascript" src="jquery-3.4.1.min.js"></script>
+    <style type="text/css">
+        .circle {
+            height: 150px;
+            width: 150px;
+            background-color: green;
+            border-radius: 50%;
+            position: relative;
+            border-style: solid;
+            margin: 10px;
+        }
+
+        #square1 {
+            height: 150px;
+            width: 150px;
+            background-color: red;
+            position: relative;
+            border-style: solid;
+            margin: 10px;
+        }
+
+        #square2 {
+            height: 150px;
+            width: 150px;
+            background-color: red;
+            position: relative;
+            border-style: solid;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="circle" id="circle1"></div>
+    <div id="square1"></div>
+    <div id="square2"></div>
+
+    <script type="text/javascript">
+
+        $("div").click(function () {
+            $(this).fadeOut(100, function() {
+                alert("The target disappear " + $(this).attr('id'));
+            });
+        });
+
+    </script>
+</body>
+
+</html>

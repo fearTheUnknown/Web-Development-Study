@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JQuery is fun to learn</title>
+    <script type="text/javascript" src="jquery-3.4.1.min.js"></script>
+    <style type="text/css">
+        #text2{
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <p id="text1">Click the button and see the magic</p>
+    <button id="button1">Toggle</button>
+    
+    <script type="text/javascript">
+
+    $("#button1").click(function(){
+        if ($("#text1").css('display') == 'block') {
+            $("#text1").fadeOut(1000);
+        }
+         else {
+            $("#text1").fadeIn(1000);
+        }
+        
+        
+    });
+
+    
+    </script>
+</body>
+
+</html>

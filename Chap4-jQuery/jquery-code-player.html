@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JQuery Code Player</title>
+    <script type="text/javascript" src="jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="jquery-ui-1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.css">
+
+    <style type="text/css">
+        #header {
+            background-color: #F0EFF1;
+            height: 50px;
+        }
+
+        #headerTitle {
+            margin-top: 10px;
+            margin-left: 10px;
+            display: inline-block;
+        }
+
+        #buttonWrapper {
+            display: inline-block;
+            margin-left: 37%;
+            margin-top: 3px;
+        }
+
+        #buttonWrapper .button {
+            height: 40px;
+            width: auto;
+            font-weight: 600;
+            font-size: medium;
+        }
+
+        #htmlConsolePanel {
+            min-width: 24.5%;
+            height: 1080px;
+            float: left;
+        }
+
+        #cssConsolePanel {
+            min-width: 24.5%;
+            height: 1080px;
+            float: left;
+        }
+
+        #javascriptConsolePanel {
+            min-width: 24.5%;
+            height: 1080px;
+            float: left;
+        }
+
+        #outputConsolePanel {
+            min-width: 24.6%;
+            max-width: 24.6%;
+            height: 1080px;
+            float: left;
+            border-style: solid;
+            border-width: thin;
+            word-wrap: normal;
+        }
+
+        body {
+            margin: 0 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="header">
+        <h2 id="headerTitle">CodePlayer</h2>
+        <div id="buttonWrapper">
+            <button class="button" id="htmlButton">HTML</button>
+            <button class="button" id="cssButton">CSS</button>
+            <button class="button" id="javascriptButton">Javascript</button>
+            <button class="button" id="outputButton">Output</button>
+        </div>
+    </div>
+
+
+    <textarea name="" id="htmlConsolePanel" cols="30" rows="10"></textarea>
+    <textarea name="" id="cssConsolePanel" cols="30" rows="10"></textarea>
+    <textarea name="" id="javascriptConsolePanel" cols="30" rows="10"></textarea>
+    <!-- <textarea name="" id="outputConsolePanel" cols="30" rows="10"></textarea> -->
+    <div id="outputConsolePanel"></div>
+
+
+    <script type="text/javascript">
+
+        var totalConsoles = ["#htmlConsolePanel", "#cssConsolePanel", "#javascriptConsolePanel", "#outputConsolePanel"];
+        var totalAvailableConsoles = 4;
+
+        setInterval(outputConsoleUpdate, 1000);
+
+        $("#htmlButton").click(function () {
+
+            // Toggle the control panel
+            $("#htmlConsolePanel").toggle();
+
+            // Check if the panel is hidden and set the total available console panel
+            if ($("#htmlConsolePanel").css("display") == "block") {
+                totalAvailableConsoles++;
+            } else {
+                totalAvailableConsoles--;
+            }
+
+            // Calculate the appropriate of available console panels to fit the body
+            var widthRatio = (100 / totalAvailableConsoles).toFixed(2) - 0.5;
+
+            // Set width for each console
+            for (console of totalConsoles) {
+
+                // If the console is hidden, no need to set its width
+                if ((console == "#htmlConsolePanel") && ($("#htmlConsolePanel").css("display") == "none")) {
+                    continue;
+                }
+                $(console).css("width", widthRatio + "%");
+            }
+        });
+
+        $("#cssButton").click(function () {
+
+            $("#cssConsolePanel").toggle();
+
+            if ($("#cssConsolePanel").css("display") == "block") {
+                totalAvailableConsoles++;
+            } else {
+                totalAvailableConsoles--;
+            }
+
+            var widthRatio = (100 / totalAvailableConsoles).toFixed(2) - 0.5;
+
+            for (console of totalConsoles) {
+
+                if (console == "#cssConsolePanel" && ($("#cssConsolePanel").css("display") == "none")) {
+                    continue;
+                }
+                $(console).css("width", widthRatio + "%");
+            }
+        });
+
+        $("#javascriptButton").click(function () {
+
+            $("#javascriptConsolePanel").toggle();
+
+            if ($("#javascriptConsolePanel").css("display") == "block") {
+                totalAvailableConsoles++;
+            } else {
+                totalAvailableConsoles--;
+            }
+
+            var widthRatio = (100 / totalAvailableConsoles).toFixed(2) - 0.5;
+
+            for (console of totalConsoles) {
+
+                if (console == "#javascriptConsolePanel" && ($("#javascriptConsolePanel").css("display") == "none")) {
+                    continue;
+                }
+                $(console).css("width", widthRatio + "%");
+            }
+        });
+
+        $("#outputButton").click(function () {
+
+            $("#outputConsolePanel").toggle();
+
+            if ($("#outputConsolePanel").css("display") == "block") {
+                totalAvailableConsoles++;
+            } else {
+                totalAvailableConsoles--;
+            }
+
+            var widthRatio = (100 / totalAvailableConsoles).toFixed(2) - 0.5;
+
+            for (console of totalConsoles) {
+
+                if (console == "#outputConsolePanel" && ($("#outputConsolePanel").css("display") == "none")) {
+                    continue;
+                }
+                $(console).css("width", widthRatio + "%");
+            }
+        });
+
+        function outputConsoleUpdate() {
+            var htmlConsoleResult = $("#htmlConsolePanel").val();
+            // document.getElementById("outputConsolePanel").innerHTML = "<h1>Hello the world</h1>";
+            $("#outputConsolePanel").html(htmlConsoleResult);
+        }
+
+    </script>
+</body>
+
+</html>

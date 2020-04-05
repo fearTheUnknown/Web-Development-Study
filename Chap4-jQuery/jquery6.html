@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JQuery is fun to learn</title>
+    <script type="text/javascript" src="jquery-3.4.1.min.js"></script>
+    <style type="text/css">
+        #circle1 {
+            height: 150px;
+            width: 150px;
+            background-color: green;
+            border-radius: 50%;
+            position: relative;
+            border-style: solid;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="circle1"></div>
+    <script type="text/javascript">
+        $("#circle1").click(function () {
+            alert("The circle is clicked");
+            $(this).animate({ width: "400px", height: "400px", marginLeft: "100px", marginTop: "100px", backgroundColor: "red" }, 2000, function() {
+                $(this).css("background-color","red");
+            });
+        });
+    </script>
+</body>
+
+</html>

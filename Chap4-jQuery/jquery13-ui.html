@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JQuery UI</title>
+    <script type="text/javascript" src="jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="jquery-ui-1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.css">
+    <style type="text/css">
+        #draggable1 {
+            width: 150px;
+            height: 150px;
+            padding: 0.5em;
+            border-style: dotted;
+        }
+
+        #droppable2 {
+            width: 450px;
+            height: 450px;
+            padding: 0.5em;
+            border-style: dotted;
+        }
+
+        #containment-wrapper1 {
+            width: 95%;
+            height: 300px;
+            border: 2px solid #ccc;
+            padding: 10px;
+        }
+
+        #containment-wrapper2 {
+            width: 95%;
+            height: 300px;
+            border: 2px solid #ccc;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div id="draggable1">
+        <p>Drag me around</p>
+    </div>
+
+    <div id="droppable2">
+        <p>Drop something to me</p>
+    </div>
+
+    <script type="text/javascript">
+        $(function () {
+            $("#draggable1").draggable();
+            $("#droppable2").droppable({drop:function() {
+                alert("You got me")
+            }});
+        });
+    </script>
+</body>
+
+</html>
