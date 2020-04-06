@@ -33,29 +33,38 @@
         }
 
         #htmlConsolePanel {
-            min-width: 24.5%;
-            height: 1080px;
+            min-width: 24.6%;
+            max-width: 24.6%;
+            min-height: 1084px;
             float: left;
+            border-style: groove;
+            border-width: thin;
         }
 
         #cssConsolePanel {
-            min-width: 24.5%;
-            height: 1080px;
+            min-width: 24.6%;
+            max-width: 24.6%;
+            min-height: 1084px;
             float: left;
+            border-style: groove;
+            border-width: thin;
         }
 
         #javascriptConsolePanel {
-            min-width: 24.5%;
-            height: 1080px;
+            min-width: 24.6%;
+            max-width: 24.6%;
+            min-height: 1084px;
             float: left;
+            border-style: groove;
+            border-width: thin;
         }
 
         #outputConsolePanel {
             min-width: 24.6%;
             max-width: 24.6%;
-            min-height: 1080px;
+            min-height: 1084px;
             float: left;
-            border-style: solid;
+            border-style: groove;
             border-width: thin;
             word-wrap: normal;
         }
@@ -79,11 +88,10 @@
     </div>
 
 
-    <textarea name="" id="htmlConsolePanel" cols="30" rows="10"></textarea>
-    <textarea name="" id="cssConsolePanel" cols="30" rows="10"></textarea>
-    <textarea name="" id="javascriptConsolePanel" cols="30" rows="10"></textarea>
-    <!-- <textarea name="" id="outputConsolePanel" cols="30" rows="10"></textarea> -->
-    <div id="outputConsolePanel"></div>
+    <div id="htmlConsolePanel" contenteditable="true"></div>
+    <div id="cssConsolePanel" contenteditable="true"></div>
+    <div id="javascriptConsolePanel" contenteditable="true"></div>
+    <div id="outputConsolePanel" contenteditable="true"></div>
 
 
     <script type="text/javascript">
@@ -183,9 +191,10 @@
         });
 
         function outputConsoleUpdate() {
-            var htmlConsoleResult = $("#htmlConsolePanel").val();
-            // document.getElementById("outputConsolePanel").innerHTML = "<h1>Hello the world</h1>";
-            $("#outputConsolePanel").html(htmlConsoleResult);
+            var htmlConsoleResult = $("#htmlConsolePanel").text();
+            var cssConsoleResult = $("#cssConsolePanel").text();
+            var javascriptConsoleResult = $("#javascriptConsolePanel").text();
+            $("#outputConsolePanel").html(cssConsoleResult + htmlConsoleResult + javascriptConsoleResult);
         }
 
     </script>
