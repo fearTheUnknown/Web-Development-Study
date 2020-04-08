@@ -13,6 +13,10 @@
             height: 50px;
         }
 
+        #consoleWrapper {
+            border-style: dotted;
+        }
+
         #headerTitle {
             margin-top: 10px;
             margin-left: 10px;
@@ -33,44 +37,30 @@
         }
 
         #htmlConsolePanel {
-            min-width: 24.6%;
-            max-width: 24.6%;
-            min-height: 1084px;
-            float: left;
-            border-style: groove;
-            border-width: thin;
+            width: 24.3%;
+            height: 100%;
         }
 
         #cssConsolePanel {
-            min-width: 24.6%;
-            max-width: 24.6%;
-            min-height: 1084px;
-            float: left;
-            border-style: groove;
-            border-width: thin;
+            width: 24.3%;
+            height: 100%;
         }
 
         #javascriptConsolePanel {
-            min-width: 24.6%;
-            max-width: 24.6%;
-            min-height: 1084px;
-            float: left;
-            border-style: groove;
-            border-width: thin;
+            width: 24.3%;
+            height: 100%;
         }
 
         #outputConsolePanel {
-            min-width: 24.6%;
-            max-width: 24.6%;
-            min-height: 1084px;
-            float: left;
-            border-style: groove;
-            border-width: thin;
-            word-wrap: normal;
+            width: 24.3%;
+            height: 100%;
         }
 
+        html,
         body {
+            border-style: solid;
             margin: 0 0;
+            height: 100%;
         }
     </style>
 </head>
@@ -87,116 +77,15 @@
         </div>
     </div>
 
-
-    <div id="htmlConsolePanel" contenteditable="true"></div>
-    <div id="cssConsolePanel" contenteditable="true"></div>
-    <div id="javascriptConsolePanel" contenteditable="true"></div>
-    <div id="outputConsolePanel" contenteditable="true"></div>
-
+    <div id="consoleWrapper">
+        <textarea id="htmlConsolePanel"></textarea>
+        <textarea id="cssConsolePanel"></textarea>
+        <textarea id="javascriptConsolePanel"></textarea>
+        <textarea id="outputConsolePanel"></textarea>
+    </div>
 
     <script type="text/javascript">
-
-        var totalConsoles = ["#htmlConsolePanel", "#cssConsolePanel", "#javascriptConsolePanel", "#outputConsolePanel"];
-        var totalAvailableConsoles = 4;
-
-        setInterval(outputConsoleUpdate, 1000);
-
-        $("#htmlButton").click(function () {
-
-            // Toggle the control panel
-            $("#htmlConsolePanel").toggle();
-
-            // Check if the panel is hidden and set the total available console panel
-            if ($("#htmlConsolePanel").css("display") == "block") {
-                totalAvailableConsoles++;
-            } else {
-                totalAvailableConsoles--;
-            }
-
-            // Calculate the appropriate of available console panels to fit the body
-            var widthRatio = (100 / totalAvailableConsoles).toFixed(2) - 0.5;
-
-            // Set width for each console
-            for (console of totalConsoles) {
-
-                // If the console is hidden, no need to set its width
-                if ((console == "#htmlConsolePanel") && ($("#htmlConsolePanel").css("display") == "none")) {
-                    continue;
-                }
-                $(console).css("width", widthRatio + "%");
-            }
-        });
-
-        $("#cssButton").click(function () {
-
-            $("#cssConsolePanel").toggle();
-
-            if ($("#cssConsolePanel").css("display") == "block") {
-                totalAvailableConsoles++;
-            } else {
-                totalAvailableConsoles--;
-            }
-
-            var widthRatio = (100 / totalAvailableConsoles).toFixed(2) - 0.5;
-
-            for (console of totalConsoles) {
-
-                if (console == "#cssConsolePanel" && ($("#cssConsolePanel").css("display") == "none")) {
-                    continue;
-                }
-                $(console).css("width", widthRatio + "%");
-            }
-        });
-
-        $("#javascriptButton").click(function () {
-
-            $("#javascriptConsolePanel").toggle();
-
-            if ($("#javascriptConsolePanel").css("display") == "block") {
-                totalAvailableConsoles++;
-            } else {
-                totalAvailableConsoles--;
-            }
-
-            var widthRatio = (100 / totalAvailableConsoles).toFixed(2) - 0.5;
-
-            for (console of totalConsoles) {
-
-                if (console == "#javascriptConsolePanel" && ($("#javascriptConsolePanel").css("display") == "none")) {
-                    continue;
-                }
-                $(console).css("width", widthRatio + "%");
-            }
-        });
-
-        $("#outputButton").click(function () {
-
-            $("#outputConsolePanel").toggle();
-
-            if ($("#outputConsolePanel").css("display") == "block") {
-                totalAvailableConsoles++;
-            } else {
-                totalAvailableConsoles--;
-            }
-
-            var widthRatio = (100 / totalAvailableConsoles).toFixed(2) - 0.5;
-
-            for (console of totalConsoles) {
-
-                if (console == "#outputConsolePanel" && ($("#outputConsolePanel").css("display") == "none")) {
-                    continue;
-                }
-                $(console).css("width", widthRatio + "%");
-            }
-        });
-
-        function outputConsoleUpdate() {
-            var htmlConsoleResult = $("#htmlConsolePanel").text();
-            var cssConsoleResult = $("#cssConsolePanel").text();
-            var javascriptConsoleResult = $("#javascriptConsolePanel").text();
-            $("#outputConsolePanel").html(cssConsoleResult + htmlConsoleResult + javascriptConsoleResult);
-        }
-
+        $("#consoleWrapper").height($("body").height() - $("#header").height());
     </script>
 </body>
 
